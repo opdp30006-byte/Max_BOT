@@ -224,15 +224,16 @@
       <section class="success" id="success" aria-live="polite">
         <div class="success-mark" aria-hidden="true">✓</div>
         <h2>Заявка готова</h2>
-        <p>Остался последний шаг — отправьте её в чат с нашим ботом. Фото помещения и примеры мебели можно приложить следующим сообщением.</p>
+        <p>Остался последний шаг — отправьте заявку боту <strong>Opdp_bot</strong>. В окне MAX выберите этот чат и нажмите «Отправить», чтобы обращение попало в открытую линию Битрикс24.</p>
         <div class="summary" id="summary"></div>
-        <button class="btn btn-primary" id="sendButton">Отправить в MAX <span aria-hidden="true">↗</span></button>
-        <p class="success-note">В выборе чата укажите диалог с компанией и нажмите «Отправить».</p>
+        <button class="btn btn-primary" id="sendButton">Выбрать чат бота <span aria-hidden="true">↗</span></button>
+        <p class="success-note">После отправки вернитесь сюда и нажмите кнопку ниже. Фото и примеры можно отправить боту отдельным сообщением.</p>
+        <button type="button" class="btn btn-secondary" id="confirmSendButton">Я отправил заявку — к портфолио</button>
       </section>
       <section class="portfolio" id="portfolio" aria-live="polite">
         <div class="portfolio-kicker">На этом не заканчиваем</div>
         <h2>Вдохновитесь нашими работами</h2>
-        <p class="portfolio-copy">После отправки заявки в MAX посмотрите наши проекты и познакомьтесь с нами поближе.</p>
+        <p class="portfolio-copy">Спасибо! Если вы отправили сообщение в чат Opdp_bot, обращение появится в открытой линии Битрикс24. А пока посмотрите наши проекты.</p>
         <div class="portfolio-links">
           <a class="portfolio-link" href="https://opdp-mebel.ru/portfolio" target="_blank" rel="noopener noreferrer">
             <span><strong>Портфолио</strong><small>Реализованные проекты и идеи</small></span><span class="arrow" aria-hidden="true">↗</span>
@@ -370,8 +371,9 @@
               else window.open(shareUrl, "_blank", "noopener,noreferrer");
             }
           } catch (error) { /* The portfolio page remains available if sharing is unavailable. */ }
-          showPortfolio();
         });
+
+        byId("confirmSendButton").addEventListener("click", showPortfolio);
 
         byId("restartButton").addEventListener("click", () => window.location.reload());
 
